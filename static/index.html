@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Kontrol Paneli</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Yükleme Ekranı -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <p>Sistem başlatılıyor...</p>
+        <p id="loading-status">ROS2 bağlantısı bekleniyor...</p>
+    </div>
+
+    <!-- Ana Kontrol Paneli -->
+    <div id="main-content" class="container" style="display: none;">
+        <div class="video-container">
+            <img id="camera-feed" src="" alt="Robot Kamera Görüntüsü">
+            <div id="connection-status" class="status-indicator">Bağlantı Bekleniyor</div>
+        </div>
+        <div class="control-container">
+            <div id="joystick"></div>
+            <div class="info-panel">
+                <h3>Robot Kontrol Paneli</h3>
+                <p>Linear X: <span id="linear-x">0.0</span></p>
+                <p>Angular Z: <span id="angular-z">0.0</span></p>
+                <div id="status-panel">
+                    <p>Sistem Durumu: <span id="system-status">Bağlanıyor...</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hata Ekranı -->
+    <div id="error-screen" style="display: none;">
+        <div class="error-container">
+            <h2>Bağlantı Hatası</h2>
+            <p id="error-message">ROS2 sistemine bağlanılamadı.</p>
+            <button id="retry-button">Yeniden Dene</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.10.0/nipplejs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
